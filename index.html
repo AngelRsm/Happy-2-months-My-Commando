@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy 2 months Commando 💜</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #001f3f 0%, #003366 60%, #336699 100%);
+      font-family: 'Pacifico', cursive;
+      color: #dde6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+    h1 {
+      margin-top: 1.5rem;
+      font-size: 3rem;
+      text-align: center;
+      text-shadow: 0 0 10px #004080;
+    }
+
+    .cake-container {
+      position: relative;
+      width: 320px;
+      height: 180px;
+      margin-top: 20px;
+    }
+
+    .cake {
+      width: 320px;
+      height: 180px;
+      background: #f7c8b6;
+      border-radius: 160px 160px 20px 20px;
+      box-shadow: inset 0 -10px 10px #d99884, 0 5px 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .candle {
+      position: absolute;
+      bottom: 160px;
+      width: 10px;
+      height: 50px;
+      background: #fff0f0;
+      border-radius: 4px;
+      border: 1.5px solid #e0b7b7;
+      box-shadow: 0 2px 4px #aaa;
+    }
+
+    .candle:nth-child(1) {
+      left: 90px;
+    }
+
+    .candle:nth-child(2) {
+      left: 210px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 28px;
+      background: radial-gradient(circle at 50% 25%, #ffeb3b 40%, #f44336 90%);
+      border-radius: 50% 50% 60% 60% / 70% 70% 100% 100%;
+      filter: drop-shadow(0 0 8px #ff6f00);
+      animation: flicker 1.2s infinite alternate;
+      pointer-events: none;
+    }
+
+    .flame.extinguished {
+      animation: none;
+      opacity: 0.15;
+      filter: none;
+    }
+
+    @keyframes flicker {
+      0% {
+        transform: translateX(-50%) scale(1) rotate(2deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50%) scale(1.1) rotate(-2deg);
+        opacity: 0.85;
+      }
+    }
+
+    .lyrics {
+      margin: 30px auto 10px;
+      width: 90%;
+      max-width: 600px;
+      background: rgba(0, 31, 63, 0.3);
+      border-radius: 12px;
+      padding: 15px 20px;
+      color: #dde6f0;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      line-height: 1.4em;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0 0 12px #00408077;
+      user-select: text;
+    }
+
+    .bible-verse {
+      margin-top: 20px;
+      padding: 18px 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 5px solid #004080;
+      border-radius: 10px;
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      color: #f3f3f3;
+      text-align: center;
+      max-width: 600px;
+      line-height: 1.5em;
+      box-shadow: 0 0 10px rgba(0, 64, 128, 0.2);
+    }
+
+    .bible-verse span {
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 8px;
+      color: #ccc;
+    }
+
+    .heart-fall {
+      position: fixed;
+      top: -50px;
+      font-size: 2rem;
+      user-select: none;
+      pointer-events: none;
+      animation: fall 3s linear infinite;
+      z-index: 0;
+      color: var(--heart-color);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy 2 months Commando 💜</h1>
+
+  <div class="cake-container">
+    <div class="cake"></div>
+    <div class="candle">
+      <div class="flame" id="flame1"></div>
+    </div>
+    <div class="candle">
+      <div class="flame" id="flame2"></div>
+    </div>
+  </div>
+
+  <div class="lyrics">
+    I don't know, it's just something about ya<br>
+    Got me feelin' like I can't be without ya<br>
+    Anytime someone mention your name<br>
+    I be feelin' as if I'm around ya<br>
+    Ain't no words to describe you, baby<br>
+    All I know is that you take me high<br>
+    Can you tell that you drive me crazy?<br>
+    'Cause I can't get you out my mind<br>
+    Think of you when I'm goin' to bed<br>
+    When I wake up, think of you again<br>
+    You are my homie, lover and friend<br>
+    Exactly why<br>
+    You light me up inside<br>
+    Like the 4th of July<br>
+    Whenever you're around<br>
+    I always seem to smile<br>
+    And people ask me how<br>
+    Well you're the reason why<br>
+    I'm dancing in the mirror<br>
+    And singing in the shower<br>
+    La-da-dee, la-da-da, la-da-da<br>
+    Singing in the shower<br>
+    La-da-dee, la-da-da, la-da-da<br>
+    Singing in the shower
+  </div>
+
+  <div class="bible-verse">
+    "I thank my God every time I remember you."
+    <br><span>— Philippians 1:3</span>
+  </div>
+
+  <script>
+    const flames = [document.getElementById('flame1'), document.getElementById('flame2')];
+
+    function extinguishFlames() {
+      flames.forEach(f => f.classList.add('extinguished'));
+      setTimeout(() => {
+        flames.forEach(f => f.classList.remove('extinguished'));
+      }, 7000);
+    }
+
+    async function startListening() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const audioContext = new AudioContext();
+        const analyser = audioContext.createAnalyser();
+        const source = audioContext.createMediaStreamSource(stream);
+        source.connect(analyser);
+        analyser.fftSize = 512;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        function checkVolume() {
+          analyser.getByteFrequencyData(dataArray);
+          let values = 0;
+          for (let i = 0; i < bufferLength; i++) {
+            values += dataArray[i];
+          }
+          const average = values / bufferLength;
+          if (average > 40) {
+            extinguishFlames();
+          }
+          requestAnimationFrame(checkVolume);
+        }
+        checkVolume();
+      } catch (e) {
+        console.log('Micro non autorisé ou indisponible:', e);
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart-fall';
+      const blueNavy = '#001f3f';
+      const colorChoice = Math.random();
+      if (colorChoice < 0.33) {
+        heart.style.color = 'red';
+      } else if (colorChoice < 0.66) {
+        heart.style.color = 'purple';
+      } else {
+        heart.style.color = blueNavy;
+      }
+      heart.innerText = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 2 + Math.random() * 2 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 3000);
+    }
+
+    setInterval(createHeart, 350);
+
+    startListening();
+  </script>
+</body>
+</html>
