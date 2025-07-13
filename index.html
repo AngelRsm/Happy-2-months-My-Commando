@@ -15,43 +15,9 @@
     color: #2b2b2b;
   }
 
-  /* Confettis & cœurs */
-  .confetti, .heart {
-    position: fixed;
-    top: -10px;
-    width: 10px; height: 10px;
-    opacity: 0.8;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    pointer-events: none;
-    z-index: 5;
-  }
-  .confetti {
-    background-color: #FFD700;
-    animation-name: fallConfetti;
-    animation-duration: 6s;
-  }
-  .heart {
-    background-color: transparent;
-    width: 20px; height: 18px;
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23AD007B" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29.6"><path d="M23.6 0C21.4 0 19.3 1.4 18 3.7 16.7 1.4 14.6 0 12.4 0 7 0 2.9 4.8 2.9 10.8 2.9 18 12 29.6 16 29.6c4 0 13-11.7 13-18.8 0-6-4.1-10.8-6.4-10.8z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    animation-name: fallHeart;
-    animation-duration: 8s;
-  }
-  @keyframes fallConfetti {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-  }
-  @keyframes fallHeart {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
-  }
-
-  /* Boite cadeau */
+  /* Boîte cadeau centrée avec nœud */
   #giftBox {
-    position: absolute;
+    position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 180px; height: 180px;
@@ -62,20 +28,53 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.4rem;
     user-select: none;
-    transition: transform 0.4s ease;
-    z-index: 10;
-  }
-  #giftBox:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 1000;
   }
 
-  /* Contenu principal - caché au début */
-  #mainContent {
-    display: none;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 40px auto 20px;
+  /* Le noeud */
+  #giftBox::before, #giftBox::after {
+    content: "";
+    position: absolute;
+    background: #cc3300;
+    border-radius: 6px;
+  }
+  /* Bande verticale du noeud */
+  #giftBox::before {
+    width: 20px;
+    height: 180px;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px #cc3300;
+  }
+  /* Bande horizontale du noeud */
+  #giftBox::after {
+    width: 180px;
+    height: 20px;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 8px #cc3300;
+  }
+
+  /* Noeud central */
+  #bow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    background: #e60000;
+    border-radius: 30px 0 30px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    box-shadow: 0 0 15px #cc3300;
+    z-index: 10;
+  }
+  #bow::before, #bow::after {
+    content: "";
+    position: absolute;
+    background: #e60000;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #cc3300;
+  }
+  #bow::bef
