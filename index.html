@@ -1,254 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy 2 Months My Commando 💜</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Quicksand', sans-serif;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy 2 Months Commando 💜</title>
+<style>
+  /* Reset & base */
+  * { box-sizing: border-box; }
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    background: #A3C9F1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    color: #2b2b2b;
+  }
 
-    body {
-      background: linear-gradient(to bottom, #cddfff, #f0f8ff);
-      overflow: hidden;
-    }
+  /* Confettis & cœurs */
+  .confetti, .heart {
+    position: fixed;
+    top: -10px;
+    width: 10px; height: 10px;
+    opacity: 0.8;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .confetti {
+    background-color: #FFD700;
+    animation-name: fallConfetti;
+    animation-duration: 6s;
+  }
+  .heart {
+    background-color: transparent;
+    width: 20px; height: 18px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23AD007B" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29.6"><path d="M23.6 0C21.4 0 19.3 1.4 18 3.7 16.7 1.4 14.6 0 12.4 0 7 0 2.9 4.8 2.9 10.8 2.9 18 12 29.6 16 29.6c4 0 13-11.7 13-18.8 0-6-4.1-10.8-6.4-10.8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: fallHeart;
+    animation-duration: 8s;
+  }
+  @keyframes fallConfetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+  @keyframes fallHeart {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+  }
 
-    #gift-screen {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: #cbdff0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      flex-direction: column;
-    }
+  /* Boite cadeau */
+  #giftBox {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px; height: 180px;
+    background: linear-gradient(135deg, #004d99 0%, #66a3ff 100%);
+    border-radius: 15px;
+    box-shadow: 0 0 15px #004d99;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    user-select: none;
+    transition: transform 0.4s ease;
+    z-index: 10;
+  }
+  #giftBox:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 
-    #gift-box {
-      width: 150px;
-      height: 150px;
-      background: navy;
-      border-radius: 10px;
-      position: relative;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-
-    #gift-box::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 50%;
-      width: 20px; height: 150px;
-      background: #fff;
-      transform: translateX(-50%);
-    }
-
-    #gift-screen p {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    #main-content {
-      display: none;
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      padding: 20px;
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-
-    h1 {
-      text-align: center;
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      margin-top: 40px;
-      color: navy;
-    }
-
-    .verse {
-      text-align: center;
-      font-size: 1.1rem;
-      margin: 10px 0 30px;
-      color: #444;
-    }
-
-    .cake {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
-      position: relative;
-      background: #ffe4b5;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .flame {
-      position: absolute;
-      top: -30px;
-      left: 50%;
-      width: 10px;
-      height: 30px;
-      background: radial-gradient(ellipse at center, orange, red);
-      border-radius: 50% 50% 40% 40%;
-      transform: translateX(-50%);
-      animation: flicker 0.2s infinite;
-    }
-
-    @keyframes flicker {
-      0% {transform: translateX(-50%) scaleY(1);}
-      50% {transform: translateX(-50%) scaleY(1.2);}
-      100% {transform: translateX(-50%) scaleY(1);}
-    }
-
-    .photos-left, .photos-right {
-      position: absolute;
-      top: 100px;
-      width: 120px;
-    }
-
-    .photos-left {
-      left: 20px;
-    }
-
-    .photos-right {
-      right: 20px;
-    }
-
-    .photos-left img, .photos-right img {
-      width: 100%;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .lyrics-box {
-      width: 80%;
-      max-height: 150px;
-      overflow-y: auto;
-      background: navy;
-      color: white;
-      padding: 15px;
-      border-radius: 20px;
-      margin: 40px auto 20px;
-    }
-
-    #music-btn {
-      display: block;
-      margin: 0 auto;
-      margin-top: 10px;
-      background: navy;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Confettis simples */
-    .confetti {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background-color: red;
-      opacity: 0.8;
-      animation: fall 5s linear infinite;
-      border-radius: 50%;
-    }
-
-    @keyframes fall {
-      0% {transform: translateY(-10vh);}
-      100% {transform: translateY(110vh);}
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Gift Screen -->
-  <div id="gift-screen">
-    <div id="gift-box"></div>
-    <p>Tap to open your gift 🎁</p>
-  </div>
-
-  <!-- Main Content -->
-  <div id="main-content">
-    <h1>Happy 2 months Commando 💜</h1>
-    <p class="verse">Philippians 1:3 – “I thank my God every time I remember you.”</p>
-
-    <div class="cake">
-      <div class="flame" id="flame1"></div>
-    </div>
-
-    <div class="photos-left">
-      <img src="https://drive.google.com/uc?export=view&id=1YvgRzCXRVc8gcCDj4mDZncT9sKEgFitm">
-      <img src="https://drive.google.com/uc?export=view&id=1pMHNN5pd2eVZKXYEveDdyLMWahcTKKBW">
-    </div>
-
-    <div class="photos-right">
-      <img src="https://drive.google.com/uc?export=view&id=1wFeu8ut_t0FG1s4G5IC5HSOG9z2ONjrN">
-      <img src="https://drive.google.com/uc?export=view&id=1KvMeL2iLqJUSMr7Ot3gTAcVQhvyo1Zv9">
-    </div>
-
-    <div class="lyrics-box">
-      <p>
-        I don't know, it's just something about ya<br>
-        Got me feelin' like I can't be without ya<br>
-        Anytime someone mention your name...<br>
-        (tout le reste ici 👇)<br><br>
-        You light me up inside<br>
-        Like the 4th of July...<br>
-        Singing in the shower 🎶
-      </p>
-    </div>
-
-    <button id="music-btn">▶</button>
-    <audio id="bg-music" src="https://drive.google.com/uc?export=download&id=1hphoO3xLHz5YqK4UKrwelvJ9GKbjdksQ"></audio>
-  </div>
-
-  <script>
-    // 🎁 Ouvrir le cadeau
-    document.getElementById("gift-box").onclick = function() {
-      document.getElementById("gift-screen").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    };
-
-    // 🎵 Lecture musique
-    const audio = document.getElementById("bg-music");
-    const btn = document.getElementById("music-btn");
-    btn.onclick = function() {
-      if (audio.paused) {
-        audio.play();
-        btn.textContent = "⏸";
-      } else {
-        audio.pause();
-        btn.textContent = "▶";
-      }
-    };
-
-    // 🎉 Confettis
-    for (let i = 0; i < 150; i++) {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti';
-      confetti.style.left = Math.random() * 100 + "vw";
-      confetti.style.top = Math.random() * -100 + "vh";
-      confetti.style.backgroundColor = Math.random() > 0.5 ? "red" : "purple";
-      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      document.body.appendChild(confetti);
-    }
-
-    // 🔥 Bougie s’éteint puis se rallume
-    const flame = document.getElementById('flame1');
-    flame.onclick = () => {
-      flame.style.display = "none";
-      setTimeout(() => {
-        flame.style.display = "block";
-      }, 20000); // 20 secondes
-    };
-  </script>
-</body>
-</html>
+  /* Contenu principal - caché au début */
+  #mainContent {
+    display: none;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 40px auto 20px;
